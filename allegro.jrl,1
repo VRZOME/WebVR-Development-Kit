@@ -1,0 +1,17 @@
+\t (00:00:16) allegro 16.5 P003 (v16-5-13C) i86
+\t (00:00:16)     Journal start - Thu May 04 21:07:40 2017
+\t (00:00:16)         Host=ACE-PC User=ACE Pid=2076 CPUs=12
+\t (00:00:16) 
+\t (00:00:17) Starting new design...
+\i (00:00:17) trapsize 1074
+\i (00:00:17) trapsize 1042
+\i (00:00:17) trapsize 1079
+\i (00:00:17) trapsize 1586
+\i (00:00:18) generaledit 
+\i (00:00:42) open 
+\i (00:00:51) fillin "H:\Main board\hdk2_0-hmd-2-pvt-l8-0526p1530.brd"
+\i (00:00:51) cd "H:\Main board"
+\t (00:00:51) Opening existing design...
+\i (00:01:09) fillin yes 
+\i (00:01:10) trapsize 8586
+\t (00:01:11)     Journal end - Thu May 04 21:08:35 2017

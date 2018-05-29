@@ -1,0 +1,414 @@
+/**
+ * eleVR Web Player: A web player for 360 video on the Oculus
+ * Copyright (C) 2014 Andrea Hawksley and Andrew Lutomirski
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+body {
+  background-color: #000;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+select {
+  border: none;
+  background: rgba(0,0,0,.6);
+  color: rgba(255,255,255,.8);
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+a {
+  cursor: pointer;
+  color: rgba(0,0,0,.5);
+}
+
+a:hover {
+  color: rgba(255,255,255,.65);
+}
+
+a:active {
+  color: rgba(255,255,255,.8);
+  text-shadow: 2px 2px 3px rgba(200,200,200,.9);
+}
+
+#video-container {
+  background-color: #000;
+}
+
+.closed {
+	  height: 35px;
+	  width: 35px;
+	  background-color:#fff;
+	  border-color: #fff;
+	  border-width: 0;
+    background-image: url('../img/close.png');
+    background-size:35px 35px;
+    background-repeat:no-repeat;
+}
+
+.left {
+  width: 50%;
+  float: left;
+  position: relative;
+  top: 43%;
+  left: 2%;
+  z-index: 1;
+}
+
+.right {
+  width: 50%;
+  float: right;
+  position: relative;
+  top: 43%;
+  right: 2%;
+  z-index: 1;
+}
+
+#glcanvas {
+  position:absolute;
+  top:0; bottom:0; right:0; left:0;
+}
+
+#video-controls {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  opacity: .9;
+  height: 0px;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+	background-color: rgba(255,255,255,.5);
+ // background-color: rgb(237,25,88);
+
+ // background: -webkit-linear-gradient(left top, rgb(190,25,141), rgb(237,25,88));
+ // background: -o-linear-gradient(bottom right, rgb(190,25,141), rgb(237,25,88));
+ // background: -moz-linear-gradient(bottom right, rgb(190,25,141), rgb(237,25,88));
+ // background: linear-gradient(to bottom right, rgb(190,25,141), rgb(237,25,88));
+}
+
+#control-hover-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:80px;
+}
+
+#control-hover-area:hover #video-controls {
+  height: 25px;
+  padding: 5px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+
+#seek-bar {
+	width: 35%;
+  float: left;
+  margin-top: 3px;
+}
+
+.lfloat {
+  float: right;
+  margin-top:2px;
+}
+
+
+select {
+  width: 90px;
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+.icon {
+  margin: 7px 5px 0px 5px;
+  width:20px;
+  float: left;
+}
+
+.rfloat {
+  float: right;
+  margin-top:5px;
+}
+
+.title, .message, .large-play {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  color: rgba(255,255,255,.5);
+}
+
+.black_overlay{  
+	display: none;  
+	position: absolute;  
+	top: 0%;  
+	left: 0%;  
+	width: 100%;  
+	height: 100%;  
+	background-color: black;  
+	z-index:1001;  
+	-moz-opacity: 0.8;  
+	opacity:.80;  
+	filter: alpha(opacity=80);  
+}  
+.white_content_size { 
+	width: 850px;  
+	height: 500px;  
+}	
+
+.white_content_config {
+	width: 650px;  
+	height: 400px;  
+}	
+
+.white_content {  
+	display: none;  
+	position: absolute;  
+	top: 50%;  
+	left: 50%;  
+	margin-left:-350px;
+	margin-top:-250px;
+	padding: 16px;  
+	border: 16px solid #737373;  
+	background-color: white;  
+	z-index:1002;  
+	overflow: auto;  
+}  
+
+.white_content .wizard-header h3 {
+  font-weight: 200;
+  text-align: center;
+  color: #2CA8FF;
+}
+
+.white_content .picture-container {
+	width: 130px; 
+	margin-left:365px;  
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.white_content .picture-personal {
+	width: 130px; 
+	margin-left:60px;  
+	margin-top:60px; 
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.white_content .picture-left {
+	width: 240px; 
+	float:left;
+  position: relative;
+}
+
+.white_content .picture-right {
+	width: 550px; 
+	padding-top:50px;
+	float:right;
+  position: relative;
+}
+
+.white_content .picture-config {
+	width: 500px; 
+	padding-top:20px;
+	padding-left:80px;
+	float:left;
+  position: relative;
+}
+
+.white_content h6 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #2CA8FF;
+  text-transform: uppercase;
+}
+.white_content .picture {
+  width: 106px;
+  height: 106px;
+  background-color: #999999;
+  border: 4px solid #CCCCCC;
+  color: #FFFFFF;
+  border-radius: 50%;
+  margin: 5px auto -10px;
+  overflow: hidden;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+.white_content .picture:hover {
+  border-color: #2ca8ff;
+}
+.white_content .picture input[type="file"] {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0 !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.white_content .picture-src {
+  width: 100%;
+}
+
+.form-group{
+	width:180px;
+	margin-bottom:15px;
+	position: relative;
+}
+
+.white_content .label1 {
+  margin-left:230px;  
+  float:left;
+}
+
+.white_content .label2 {
+  margin-right:200px;  
+  float:right;
+}
+
+.white_content .label3 {
+  margin-left:50px;  
+  float:left;
+}
+
+.white_content .label4 {
+  margin-right:200px;  
+  float:right;
+}
+
+.white_content .label5 {
+  margin-left:400px;  
+  float:left;
+}
+
+.white_content .label6 {
+	position: relative;
+	margin-top:-390px;   
+  float:right;
+}
+
+.white_content .label7 {
+  margin-left:350px;  
+  margin-top:30px;  
+  float:left;
+}
+
+
+.white_content .form-group label {
+  font-size: 12px;
+  font-weight:400;
+  color: #2CA8FF;
+}
+
+.form-control{
+	display:block;
+	width:150px;
+	height:12px;
+	padding:6px 12px;
+	font-size:14px;
+	line-height:1.42857143;
+	color:#555;
+	background-color:#fff;
+	background-image:none;
+	border:1px solid #ccc;
+	border-radius:4px;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+.form-control0{
+	float:right;
+	margin-right:5px;
+	display:block;
+	width:50px;
+	height:12px;
+	padding:6px 12px;
+	font-size:14px;
+	line-height:1.42857143;
+	color:#555;
+	background-color:#fff;
+	background-image:none;
+	border:1px solid #ccc;
+	border-radius:4px;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+.btn {
+	float:left;
+  border-width: 2px;
+  background-color: transparent;
+  font-weight: 400;
+  opacity: 0.8;
+  
+}
+.btn:active, .btn.active {
+  background-image: none;
+  box-shadow: none;
+}
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  opacity: 0.45;
+}
+
+.form-watch{
+	width:380px;
+	margin-left:300px;
+	position: relative;
+}
+
+.form-watch{
+  margin-top:10px;
+	width:80px;
+	padding: 8px 16px;
+}
+
+.form-watch{	
+	margin-top:10px;
+	width:250px;
+	padding: 8px 16px;
+}	
+
+.btn_mobile{
+	height:26px;
+	width:80px;
+	padding: 2px 16px;
+}

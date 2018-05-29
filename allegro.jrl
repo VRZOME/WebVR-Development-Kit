@@ -1,0 +1,21 @@
+\t (00:00:14) allegro 16.5 P003 (v16-5-13C) i86
+\t (00:00:14)     Journal start - Fri May 05 15:13:26 2017
+\t (00:00:14)         Host=ACE-PC User=ACE Pid=4516 CPUs=12
+\t (00:00:14) 
+\t (00:00:15) Starting new design...
+\i (00:00:15) trapsize 1074
+\i (00:00:16) trapsize 1042
+\i (00:00:16) trapsize 1079
+\i (00:00:16) trapsize 1586
+\i (00:00:16) generaledit 
+\i (00:01:48) open 
+\i (00:01:57) fillin "E:\HDK Ver. 2.0\electronics\board\Main board\hdk2_0-hmd-2-pvt-l8-0526p1530.brd"
+\i (00:01:57) cd "E:\HDK Ver. 2.0\electronics\board\Main board"
+\t (00:01:57) Opening existing design...
+\i (00:01:59) fillin yes 
+\w (00:01:59) WARNING(SPMHDB-214): OrCAD PCB Designer Professional opening an Allegro Editor design.
+\w (00:01:59) WARNING(SPMHDB-213): DRC set to "out of date". This product supports a different DRC set than last product used on drawing.
+\w (00:01:59) WARNING(SPMHOD-33): Design was last saved by a higher capability product (Allegro Editor). There may be constraints and other design data that may be ignored at the tool's current license levels.
+\i (00:02:25) fillin confirm
+\i (00:02:25) trapsize 8586
+\t (00:02:25)     Journal end - Fri May 05 15:15:37 2017
