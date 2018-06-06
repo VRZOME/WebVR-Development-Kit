@@ -29,6 +29,10 @@ The following table documents the keyboard controls currently available.
 
 VRZOME was developed by China NEXUS tech .ltd. It's desinged for WebVR develoment. As far as I know, the devices(Oculus/PSVR/other HMD) has their own protocal. Before Using these device, install several drivers and configuration. Until WebVR, it is based on Chrome Web, and it is opene-source. It's good time to release this Webvr Hardware devrlopment Kit.
 
+## Where to buy ##
+Alibaba：Sale deriectly $200 (including tax and shipment)
+https://item.taobao.com/item.htm?id=571097293214
+
 ## Future Work ##
 The following is a short subset of planned future work on the player.
 - upgrade IMU sensor and fusion algorithm
