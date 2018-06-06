@@ -4,8 +4,7 @@ VRZOME Development Kit
 The VRZOME lets you watch 180/360 flat and stereo video on its own development kit. It contains 4K LCD and oculus IMU sensor, and use Chrome web broser.
 
 Hardware information：
-LCD：SONY Z5P 5.5 inch 4K (2560*3840)                    Platform: Windows 7 or 10, Chrome stable
-Interface:HDMI + USB   
+LCD：SONY Z5P 5.5 inch 4K (2560*3840)
 
 ![](https://img.alicdn.com/imgextra/i2/2737832668/TB24wGObeUXBuNjt_a0XXcysXXa_!!2737832668.jpg)
 
