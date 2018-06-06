@@ -12,4 +12,31 @@ Videos shown in the player can be rotated using keyboard controls  (a/d, w/s, an
 
 #### [Go check out the demo!](https://vrzome.github.io/WebVR-Development-Kit/) ####
 
+The following table documents the keyboard controls currently available.
 
+| Key | Control           |
+|:-----:|-------------|
+| p   | play/pause |
+| l   | toggle looping |
+| f   | full screen webVR mode (with barrel distortion) |
+| g   | regular full screen mode (less lag) |
+| w   | up |
+| a   | left |
+| s   | down |
+| d   | right |
+| q   | rotate left |
+| e   | rotate right |
+
+VRZOME was developed by China NEXUS tech .ltd. It's desinged for WebVR develoment. As far as I know, the devices(Oculus/PSVR/other HMD) has their own protocal. Before Using these device, install several drivers and configuration. Until WebVR, it is based on Chrome Web, and it is opene-source. It's good time to release this Webvr Hardware devrlopment Kit.
+
+## Future Work ##
+The following is a short subset of planned future work on the player.
+- upgrade IMU sensor and fusion algorithm
+- upgrade audio decode IC and amplifier
+- Merge Webvr
+
+## 3rd party libraries ##
+The following assets are used by the VRZOME:
+- eleVR Player - https://github.com/hawksley/eleVR-Web-Player
+- glMatrix - Similar to MIT License - http://glmatrix.net/
+- Font Awesome - MIT License - http://fortawesome.github.io/Font-Awesome/
