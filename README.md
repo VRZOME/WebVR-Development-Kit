@@ -43,5 +43,6 @@ The following is a short subset of planned future work on the player.
 ## 3rd party libraries ##
 The following assets are used by the VRZOME:
 - eleVR Player - https://github.com/hawksley/eleVR-Web-Player
+- webusb - https://github.com/webusb/arduino
 - glMatrix - Similar to MIT License - http://glmatrix.net/
 - Font Awesome - MIT License - http://fortawesome.github.io/Font-Awesome/
