@@ -32,7 +32,7 @@ VRZOME was developed by China NEXUS tech .ltd. It's desinged for WebVR develomen
 ## Where to buy ##
 Alibaba：sale deriectly $200 (including tax and shipment)<br/>
 https://item.taobao.com/item.htm?id=571097293214
-<br/>MSN: way2way@live.com
+<br/>Contact: way2way@live.com
 
 ## Future Work ##
 The following is a short subset of planned future work on the player.
