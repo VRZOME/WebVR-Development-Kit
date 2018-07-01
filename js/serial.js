@@ -113,11 +113,13 @@ var pSerialGammaMin = 0;
     if(SerialBeta < -90) SerialBeta = -90;     if(SerialBeta > 90) SerialBeta = 90;
     if(SerialAlpha < -180) SerialAlpha = -180; if(SerialAlpha > 0) SerialAlpha = 0;
     
-    pSerialAlpha++;if(pSerialAlpha<0 || pSerialAlpha>10){pSerialAlpha = 0;}
-    pSerialBeta++; if(pSerialBeta<0  || pSerialBeta>10) {pSerialBeta = 0;}
-    pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>10){pSerialGamma = 0;}
+    pSerialAlpha++;if(pSerialAlpha<0 || pSerialAlpha>5){pSerialAlpha = 0;}
+    pSerialBeta++; if(pSerialBeta<0  || pSerialBeta>5) {pSerialBeta = 0;}
+    pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>5){pSerialGamma = 0;}
     
-    if( (SerialAlpha - SerialAlphaLast) < 2 && (SerialAlpha - SerialAlphaLast) > -2) 
+    console.log( (SerialAlpha - SerialAlphaLast) + " " + (SerialBeta - SerialBetaLast) + " " + (SerialGamma - SerialGammaLast));
+    
+    if( (SerialAlpha - SerialAlphaLast) < 3 && (SerialAlpha - SerialAlphaLast) > -3) 
     {
     	  dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast;
     }
@@ -126,7 +128,7 @@ var pSerialGammaMin = 0;
     	  dateSerialAlpha[pSerialAlpha] =  SerialAlpha;
     }  
     
-    if( (SerialBeta - SerialBetaLast) < 5 && (SerialBeta - SerialBetaLast) > -5)
+    if( (SerialBeta - SerialBetaLast) < 6 && (SerialBeta - SerialBetaLast) > -6)
     {
     	  dateSerialBeta[pSerialBeta]   =  SerialBetaLast;
     }
@@ -136,7 +138,7 @@ var pSerialGammaMin = 0;
     }
 
     
-    if( (SerialGamma - SerialGammaLast) < 2 && (SerialGamma - SerialGammaLast) > -2)  
+    if( (SerialGamma - SerialGammaLast) < 3 && (SerialGamma - SerialGammaLast) > -3)  
     {
     	  dateSerialGamma[pSerialGamma] =  SerialGammaLast;
     }
@@ -276,7 +278,7 @@ var pSerialGammaMin = 0;
 		SerialAlphaLast = SerialAlpha;
     SerialBetaLast =  SerialBeta;
     SerialGammaLast = SerialGamma;
-    //console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
+    console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
     }
     }
    
