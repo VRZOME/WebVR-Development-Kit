@@ -117,9 +117,11 @@ var pSerialGammaMin = 0;
     pSerialBeta++; if(pSerialBeta<0  || pSerialBeta>10) {pSerialBeta = 0;}
     pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>10){pSerialGamma = 0;}
 
-    console.log("Now:" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);	
-    console.log("Bef:" + SerialAlphaLast + " " + SerialBetaLast + " " + SerialGammaLast);		    
-    
+    //console.log("Now:" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);	
+    //console.log("Bef:" + SerialAlphaLast + " " + (SerialBeta - SerialBetaLast) + " " + SerialGammaLast);
+	    
+    console.log("Compare:" + (SerialAlpha - SerialAlphaLast) + " " + SerialBeta + " " +  (SerialGamma - SerialGammaLast));	
+	    
     if( (SerialAlpha - SerialAlphaLast) < 2 && (SerialAlpha - SerialAlphaLast) > -2) 
     {
     	  dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast;
