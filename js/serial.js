@@ -278,10 +278,10 @@ var pSerialGammaMin = 0;
       	  SerialGamma = -tsum;
     }
     
-		SerialAlphaLast = SerialAlpha;
+    SerialAlphaLast = SerialAlpha;
     SerialBetaLast =  SerialBeta;
     SerialGammaLast = SerialGamma;
-    //console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
+    console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
     }
     }
    
