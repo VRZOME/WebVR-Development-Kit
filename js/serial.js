@@ -113,15 +113,10 @@ var pSerialGammaMin = 0;
     if(SerialBeta < -90) SerialBeta = -90;     if(SerialBeta > 90) SerialBeta = 90;
     if(SerialAlpha < -180) SerialAlpha = -180; if(SerialAlpha > 0) SerialAlpha = 0;
     
-    pSerialAlpha++;if(pSerialAlpha < 0 || pSerialAlpha > 10){pSerialAlpha = 0;}
-    pSerialBeta++; if(pSerialBeta < 0  || pSerialBeta > 10) {pSerialBeta = 0;}
-    pSerialGamma++;if(pSerialGamma < 0 || pSerialGamma > 10){pSerialGamma = 0;}
-
-    //console.log("Now:" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);	
-    //console.log("Bef:" + SerialAlphaLast + " " + (SerialBeta - SerialBetaLast) + " " + SerialGammaLast);
-	    
-    //console.log("Compare:" + (SerialAlpha - SerialAlphaLast) + " " + SerialBeta + " " +  (SerialGamma - SerialGammaLast));	
-	    
+    pSerialAlpha++;if(pSerialAlpha<0 || pSerialAlpha>10){pSerialAlpha = 0;}
+    pSerialBeta++; if(pSerialBeta<0  || pSerialBeta>10) {pSerialBeta = 0;}
+    pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>10){pSerialGamma = 0;}
+    
     if( (SerialAlpha - SerialAlphaLast) < 2 && (SerialAlpha - SerialAlphaLast) > -2) 
     {
     	  dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast;
@@ -278,10 +273,10 @@ var pSerialGammaMin = 0;
       	  SerialGamma = -tsum;
     }
     
-    SerialAlphaLast = SerialAlpha;
+		SerialAlphaLast = SerialAlpha;
     SerialBetaLast =  SerialBeta;
     SerialGammaLast = SerialGamma;
-    console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
+    //console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
     }
     }
    
