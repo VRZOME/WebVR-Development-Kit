@@ -5,7 +5,6 @@
     let connectButton = document.querySelector("#connect");
     let statusDisplay = document.querySelector('#status');
     let port;
-	let textEncoder = new TextEncoder();
 
     function connect() {
       port.connect().then(() => {
@@ -22,50 +21,12 @@
       }, error => {
         //statusDisplay.textContent = error;
       });
-    }
-
-    function onUpdate() {
-      if (!port) {
-        return;
-      }
-
-      let view = new Uint8Array(3);
-      view[0] = parseInt(redSlider.value);
-      view[1] = parseInt(greenSlider.value);
-      view[2] = parseInt(blueSlider.value);
-      port.send(view);
     };
-
-	lockScreenButton.addEventListener('click', function() {
-	  	if(lockmark == 0)
-	  	{
-	  	    lockmark = 1;
-			if (port !== undefined) {
-			port.send(textEncoder.encode('l')).catch(error => {
-            t.io.println('Send error: ' + error);
-             });
-			}
-			window.lockScreenButton.className = 'fa fa-unlock icon rfloat';
-            window.lockScreenButton.title = 'unlock';
-	  	
-	  	}
-		else
-		{
-            lockmark = 0;
-			if (port !== undefined) {
-			port.send(textEncoder.encode('L')).catch(error => {
-            t.io.println('Send error: ' + error);
-             });
-			}
-			window.lockScreenButton.className = 'fa fa-lock icon rfloat';
-            window.lockScreenButton.title = 'lock';
-		}
-    });
 
     connectButton.addEventListener('click', function() {
       if (port) {
         port.disconnect();
-		connectButton.className = 'fa fa-hmdvr-o icon';
+	connectButton.className = 'fa fa-search icon';
         connectButton.title = 'Conect';
    
         connectButton.textContent = ' ';
@@ -75,7 +36,7 @@
         serial.requestPort().then(selectedPort => {
           port = selectedPort;
           connect();
-          connectButton.className = 'fa fa-hmdvr-after-o icon';
+          connectButton.className = 'fa fa-gamepad icon';
           connectButton.title = 'Conect';
 		  
         }).catch(error => {
