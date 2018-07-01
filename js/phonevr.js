@@ -37,41 +37,9 @@ PhoneVR.prototype.rotationQuat = function() {
         SerialAlpha = -90;  
     }
         
-    //this.deviceAlpha = -SerialGamma;
-    //this.deviceBeta  = -SerialBeta;
-    //this.deviceGamma = SerialAlpha;
-	  
-    if(SerialGamma < -180) SerialGamma = -180; if(SerialGamma > 180) SerialGamma = 180;
-    if(SerialBeta < -90) SerialBeta = -90;     if(SerialBeta > 90) SerialBeta = 90;
-    if(SerialAlpha < -180) SerialAlpha = -180;       if(SerialAlpha > 0) SerialAlpha = 0;
-	  
-    if((SerialGamma + this.deviceAlpha) > 2 || (SerialGamma + this.deviceAlpha) < -2) 
-    {
-        this.deviceAlpha = -SerialGamma;
-    }
-    else
-    {
-        this.deviceAlpha = this.deviceAlpha - (SerialGamma + this.deviceAlpha)/10;
-    }    
-	  
-    if((SerialBeta + this.deviceBeta) > 2 || (SerialBeta + this.deviceBeta) < -2) 
-    {
-        this.deviceBeta  = -SerialBeta;
-    }
-    else
-    {
-        this.deviceBeta = this.deviceBeta - (SerialBeta + this.deviceBeta)/10;
-    }
-	  
-	  
-    if((SerialAlpha - this.deviceGamma) > 2 || (SerialAlpha - this.deviceGamma) < -2) 
-    {
-        this.deviceGamma = SerialAlpha;
-    }
-    else
-    {
-        this.deviceGamma = this.deviceGamma + (SerialAlpha - this.deviceGamma)/10;
-    }
+    this.deviceAlpha = -SerialGamma;
+    this.deviceBeta  = -SerialBeta;
+    this.deviceGamma = SerialAlpha;
 
     var degtorad = Math.PI / 180; // Degree-to-Radian conversion
     var z = this.deviceAlpha * degtorad / 2;
