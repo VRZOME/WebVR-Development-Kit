@@ -120,7 +120,7 @@ var pSerialGammaMin = 0;
     //console.log("Now:" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);	
     //console.log("Bef:" + SerialAlphaLast + " " + (SerialBeta - SerialBetaLast) + " " + SerialGammaLast);
 	    
-    console.log("Compare:" + (SerialAlpha - SerialAlphaLast) + " " + SerialBeta + " " +  (SerialGamma - SerialGammaLast));	
+    //console.log("Compare:" + (SerialAlpha - SerialAlphaLast) + " " + SerialBeta + " " +  (SerialGamma - SerialGammaLast));	
 	    
     if( (SerialAlpha - SerialAlphaLast) < 2 && (SerialAlpha - SerialAlphaLast) > -2) 
     {
