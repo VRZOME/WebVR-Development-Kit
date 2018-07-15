@@ -58,6 +58,8 @@ var pSerialGammaMin = 0;
     var tsum;
     var tcount;
     var tvector;
+	  
+    var pSerialBufferLength = 10;	  
   		
     let readLoop = () => {
 		
@@ -113,14 +115,14 @@ var pSerialGammaMin = 0;
     if(SerialBeta < -90) SerialBeta = -90;     if(SerialBeta > 90) SerialBeta = 90;
     if(SerialAlpha < -180) SerialAlpha = -180; if(SerialAlpha > 0) SerialAlpha = 0;
     
-    pSerialAlpha++;if(pSerialAlpha<0 || pSerialAlpha>5){pSerialAlpha = 0;}
-    pSerialBeta++; if(pSerialBeta<0  || pSerialBeta>5) {pSerialBeta = 0;}
-    pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>5){pSerialGamma = 0;}
+    pSerialAlpha++;if(pSerialAlpha < 0 || pSerialAlpha > pSerialBufferLength){pSerialAlpha = 0;}
+    pSerialBeta++; if(pSerialBeta < 0  || pSerialBeta > pSerialBufferLength) {pSerialBeta = 0;}
+    pSerialGamma++;if(pSerialGamma < 0 || pSerialGamma > pSerialBufferLength){pSerialGamma = 0;}
     
     //console.log( (SerialAlpha - SerialAlphaLast) + " " + (SerialBeta - SerialBetaLast) + " " + (SerialGamma - SerialGammaLast));
-    if(isNaN(SerialAlphaLast)){ SerialAlphaLast = SerialAlpha;}
-    if(isNaN(SerialBetaLast)){ SerialBetaLast = SerialBeta;}
-    if(isNaN(SerialGammaLast)){ SerialGammaLast = SerialGamma;}
+    //if(isNaN(SerialAlphaLast)){ SerialAlphaLast = SerialAlpha;}
+    //if(isNaN(SerialBetaLast)){ SerialBetaLast = SerialBeta;}
+    //if(isNaN(SerialGammaLast)){ SerialGammaLast = SerialGamma;}
 	    
     if( (SerialAlpha - SerialAlphaLast) < 3 && (SerialAlpha - SerialAlphaLast) > -3) 
     {
@@ -128,8 +130,8 @@ var pSerialGammaMin = 0;
     }
     else
     {
-	  //dateSerialAlpha[pSerialAlpha] =  SerialAlpha;   
-    	  dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast + (SerialAlpha - SerialAlphaLast)/5;
+	  dateSerialAlpha[pSerialAlpha] =  SerialAlpha;   
+    	  //dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast + (SerialAlpha - SerialAlphaLast)/5;
     }  
     
     if( (SerialBeta - SerialBetaLast) < 6 && (SerialBeta - SerialBetaLast) > -6)
@@ -138,8 +140,8 @@ var pSerialGammaMin = 0;
     }
     else
     {
-	  //dateSerialBeta[pSerialBeta]   =    SerialBeta;
-    	  dateSerialBeta[pSerialBeta]   =  SerialBetaLast + (SerialBeta - SerialBetaLast)/5;
+	  dateSerialBeta[pSerialBeta]   =    SerialBeta;
+    	  //dateSerialBeta[pSerialBeta]   =  SerialBetaLast + (SerialBeta - SerialBetaLast)/5;
     }
 
     
@@ -149,13 +151,13 @@ var pSerialGammaMin = 0;
     }
     else
     {
-	   //dateSerialGamma[pSerialGamma] = SerialGamma;
-    	  dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
+	  dateSerialGamma[pSerialGamma] = SerialGamma;
+    	  //dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
-    console.log( "Release 1" );	     
-    console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
-    console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
+    console.log( "Release 2" );	     
+    //console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
+    //console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
 	    
     pSerialAlphaMax = 0;
     pSerialAlphaMin = 0;
@@ -164,7 +166,7 @@ var pSerialGammaMin = 0;
     pSerialGammaMax = 0;
     pSerialGammaMin = 0;
     
-    for(var j=1; j<5; j++)
+    for(var j=1; j < pSerialBufferLength; j++)
     {
         if(dateSerialAlpha[pSerialAlphaMin] > dateSerialAlpha[j])
       	{
@@ -196,7 +198,7 @@ var pSerialGammaMin = 0;
     tsum = 0;
     tcount = 0;
     tvector = 0;
-    for(j=0; j<5; j++)
+    for(j=0; j < pSerialBufferLength; j++)
     {
       	 if(j!=pSerialAlphaMin &&  j!=pSerialAlphaMax)
       	 {
@@ -227,7 +229,7 @@ var pSerialGammaMin = 0;
     tsum = 0;
     tcount = 0;
     tvector = 0;
-    for(j=0; j<5; j++)
+    for(j=0; j < pSerialBufferLength; j++)
     {
       	 if(j!=pSerialBetaMin &&  j!=pSerialBetaMax)
       	 {
@@ -258,7 +260,7 @@ var pSerialGammaMin = 0;
     tsum = 0;
     tcount = 0;
     tvector = 0;
-    for(j=0; j<5; j++)
+    for(j=0; j < pSerialBufferLength; j++)
     {
       	 if(j!=pSerialGammaMin &&  j!=pSerialGammaMax)
       	 {
@@ -285,10 +287,10 @@ var pSerialGammaMin = 0;
       	  SerialGamma = -tsum;
     }
     
-		SerialAlphaLast = SerialAlpha;
+    SerialAlphaLast = SerialAlpha;
     SerialBetaLast =  SerialBeta;
     SerialGammaLast = SerialGamma;
-    console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
+    //console.log("IMU" + SerialAlpha + " " + SerialBeta + " " + SerialGamma);
     }
     }
    
