@@ -59,7 +59,7 @@ var pSerialGammaMin = 0;
     var tcount;
     var tvector;
 	  
-    var pSerialBufferLength = 10;	  
+    var pSerialBufferLength = 8;	  
   		
     let readLoop = () => {
 		
