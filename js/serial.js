@@ -118,7 +118,10 @@ var pSerialGammaMin = 0;
     pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>5){pSerialGamma = 0;}
     
     //console.log( (SerialAlpha - SerialAlphaLast) + " " + (SerialBeta - SerialBetaLast) + " " + (SerialGamma - SerialGammaLast));
-    
+    if(isNaN(SerialAlphaLast)){ SerialAlphaLast = 0;}
+    if(isNaN(SerialBetaLast)){ SerialBetaLast = 0;}
+    if(isNaN(SerialGammaLast)){ SerialGammaLast = 0;}
+	    
     if( (SerialAlpha - SerialAlphaLast) < 3 && (SerialAlpha - SerialAlphaLast) > -3) 
     {
     	  dateSerialAlpha[pSerialAlpha] =  SerialAlphaLast;
