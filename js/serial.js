@@ -125,7 +125,8 @@ var pSerialGammaMin = 0;
     }
     else
     {
-    	  dateSerialAlpha[pSerialAlpha] =  dateSerialAlpha[pSerialAlpha] + (SerialAlpha - dateSerialAlpha[pSerialAlpha])/10;
+	  dateSerialAlpha[pSerialAlpha] =  SerialAlpha;   
+    	  //dateSerialAlpha[pSerialAlpha] =  dateSerialAlpha[pSerialAlpha] + (SerialAlpha - dateSerialAlpha[pSerialAlpha])/10;
     }  
     
     if( (SerialBeta - SerialBetaLast) < 6 && (SerialBeta - SerialBetaLast) > -6)
@@ -134,7 +135,8 @@ var pSerialGammaMin = 0;
     }
     else
     {
-    	  dateSerialBeta[pSerialBeta]   =  dateSerialBeta[pSerialBeta] + (SerialBeta - dateSerialBeta[pSerialBeta])/10;
+	  dateSerialBeta[pSerialBeta]   =    SerialBeta;
+    	  //dateSerialBeta[pSerialBeta]   =  dateSerialBeta[pSerialBeta] + (SerialBeta - dateSerialBeta[pSerialBeta])/10;
     }
 
     
@@ -144,7 +146,8 @@ var pSerialGammaMin = 0;
     }
     else
     {
-    	  dateSerialGamma[pSerialGamma] =  dateSerialGamma[pSerialGamma]  + (SerialGamma - dateSerialGamma[pSerialGamma])/10;
+	    dateSerialGamma[pSerialGamma] = SerialGamma;
+    	  //dateSerialGamma[pSerialGamma] =  dateSerialGamma[pSerialGamma]  + (SerialGamma - dateSerialGamma[pSerialGamma])/10;
     }
 
     pSerialAlphaMax = 0;
