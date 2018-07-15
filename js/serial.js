@@ -150,7 +150,9 @@ var pSerialGammaMin = 0;
     	  dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
-    console.log( (dateSerialAlpha[pSerialAlpha]) + " 1 " + (dateSerialBeta[pSerialBeta]) + " " + (dateSerialGamma[pSerialGamma]));	    
+    console.log( (SerialAlpha) + " 1 " + (SerialBeta) + " " + (SerialGamma));	
+    console.log( (SerialAlphaLast) + " 2 " + (SerialBetaLast) + " " + (SerialGammaLast));	    
+	    
     pSerialAlphaMax = 0;
     pSerialAlphaMin = 0;
     pSerialBetaMax  = 0;
