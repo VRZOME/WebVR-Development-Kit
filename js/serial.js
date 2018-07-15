@@ -155,7 +155,7 @@ var pSerialGammaMin = 0;
     	  //dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
-    console.log( "Release 2" );	     
+    console.log( "Release 3" );	     
     //console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
     //console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
 	    
