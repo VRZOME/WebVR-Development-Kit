@@ -118,9 +118,9 @@ var pSerialGammaMin = 0;
     pSerialGamma++;if(pSerialGamma<0 || pSerialGamma>5){pSerialGamma = 0;}
     
     //console.log( (SerialAlpha - SerialAlphaLast) + " " + (SerialBeta - SerialBetaLast) + " " + (SerialGamma - SerialGammaLast));
-    if(isNaN(SerialAlphaLast)){ SerialAlphaLast = 0;}
-    if(isNaN(SerialBetaLast)){ SerialBetaLast = 0;}
-    if(isNaN(SerialGammaLast)){ SerialGammaLast = 0;}
+    if(isNaN(SerialAlphaLast)){ SerialAlphaLast = SerialAlpha;}
+    if(isNaN(SerialBetaLast)){ SerialBetaLast = SerialBeta;}
+    if(isNaN(SerialGammaLast)){ SerialGammaLast = SerialGamma;}
 	    
     if( (SerialAlpha - SerialAlphaLast) < 3 && (SerialAlpha - SerialAlphaLast) > -3) 
     {
@@ -153,6 +153,7 @@ var pSerialGammaMin = 0;
     	  dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
+    console.log( "Release 1" );	     
     console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
     console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
 	    
