@@ -153,8 +153,8 @@ var pSerialGammaMin = 0;
     	  dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
-    console.log( (SerialAlpha) + " 1 " + (SerialBeta) + " " + (SerialGamma));	
-    console.log( (SerialAlphaLast) + " 2 " + (SerialBetaLast) + " " + (SerialGammaLast));	    
+    console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
+    console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
 	    
     pSerialAlphaMax = 0;
     pSerialAlphaMin = 0;
