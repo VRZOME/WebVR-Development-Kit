@@ -111,6 +111,8 @@ var pSerialGammaMin = 0;
 		SerialBeta  = SerialBetaLocal;  
 		SerialGamma = SerialGammaLocal;  
 	    
+	  console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
+	    
     if(SerialGamma < -180) SerialGamma = -180; if(SerialGamma > 180) SerialGamma = 180;
     if(SerialBeta < -90) SerialBeta = -90;     if(SerialBeta > 90) SerialBeta = 90;
     if(SerialAlpha < -180) SerialAlpha = -180; if(SerialAlpha > 0) SerialAlpha = 0;
@@ -155,7 +157,7 @@ var pSerialGammaMin = 0;
     	  //dateSerialGamma[pSerialGamma] =  SerialGammaLast  + (SerialGamma - SerialGammaLast)/5;
     }
 
-    console.log( "Release 3" );	     
+    //console.log( "Release 3" );	     
     //console.log( "NOW" + (SerialAlpha) + " " + (SerialBeta) + " " + (SerialGamma));	
     //console.log( "LST" + (SerialAlphaLast) + " " + (SerialBetaLast) + " " + (SerialGammaLast));	    
 	    
